@@ -8,7 +8,7 @@ import "fmt"
 
 func main() {
 
-	// var <- We're about to create anew variable
+	// var <- We're about to create a  new variable
 	// card <- The name of variable will be 'card'
 	// string <- The type of variable is 'string'
 	// = <- Assignment operator
@@ -16,8 +16,31 @@ func main() {
 	//* var card string = "Ace of Spades"
 
 	// := <- This is to be used only during initialization of variable
-	card := "Ace of Spades"
-	card = "Five of Diamonds"
+	//* card := "Ace of Spades"
+	//* card = "Five of Diamonds"
 
-	fmt.Println(card)
+	//* card := newCard()
+
+	//* fmt.Println(card)
+
+	// Slice
+	// - Like a dynamic array
+	// - Must contain same data types
+	// - syntax, []#dataType{#data} // # is a placeholder
+	cards := []string{"Ace of Diamonds", newCard()}
+	cards = append(cards, "Six of Spaded")
+
+	// range cards is returning two things, 1st is index & 2nd is the value
+	// used as an iterator for slice
+	for i, card := range cards {
+		fmt.Println(i, card)
+	}
+}
+
+// newCard <- Define a function called 'newCard'
+// string <- When executed, this function will return a value of type 'string'
+//! Without specifying return type(string), compiler will through an error,
+//! too many return statements, as it thinks nothing will return
+func newCard() string {
+	return "Five of Diamonds"
 }

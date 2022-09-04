@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+)
 
 // Create a new type of 'deck'
 // which is a slice of strings
@@ -22,10 +26,13 @@ func newDeck() deck {
 }
 
 // d <- The actual copy of the deck we're working with
-//		is available in the function as a variable 'd'.(Receiver)
-//		Should be a single letter abbreviation
+//
+//	is available in the function as a variable 'd'.(Receiver)
+//	Should be a single letter abbreviation
+//
 // deck <- Every variable of type 'deck'
-//			can call this function on itself
+//
+//	can call this function on itself
 func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
@@ -34,4 +41,14 @@ func (d deck) print() {
 
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+func (d deck) toString() string {
+	return strings.Join([]string(d), ", ")
+}
+
+func (d deck) saveToFile(filename string) error {
+	byteSlice := []byte(d.toString())
+	err := ioutil.WriteFile(filename, byteSlice, 0666)
+	return err
 }

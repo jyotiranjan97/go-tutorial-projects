@@ -30,7 +30,7 @@ func main() {
 	//* cards := deck{"Ace of Diamonds", newCard()}
 	//* cards = append(cards, "Six of Spaded")
 
-	cards := newDeck()
+	//* cards := newDeck()
 
 	// range cards is returning two things, 1st is index & 2nd is the value
 	// used as an iterator for slice
@@ -40,12 +40,19 @@ func main() {
 
 	//* cards.print()
 
-	hand, remainingCards := deal(cards, 5)
-	hand.print()
-	remainingCards.print()
+	//* hand, remainingCards := deal(cards, 5)
+	//* hand.print()
+	//* remainingCards.print()
 
 	//* fmt.Println(cards.toString())
-	cards.saveToFile("my_cards.txt")
+
+	//* cards.saveToFile("my_cards.txt")
+
+	cards := newDeckFromFile("my_cards.txt")
+
+	cards.shuffle()
+
+	cards.print()
 }
 
 // newCard <- Define a function called 'newCard'

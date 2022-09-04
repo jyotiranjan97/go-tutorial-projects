@@ -27,8 +27,10 @@ func main() {
 	// - syntax, []#dataType{#data} // # is a placeholder
 	//* cards := []string{"Ace of Diamonds", newCard()}
 
-	cards := deck{"Ace of Diamonds", newCard()}
-	cards = append(cards, "Six of Spaded")
+	//* cards := deck{"Ace of Diamonds", newCard()}
+	//* cards = append(cards, "Six of Spaded")
+
+	cards := newDeck()
 
 	// range cards is returning two things, 1st is index & 2nd is the value
 	// used as an iterator for slice
@@ -43,6 +45,6 @@ func main() {
 // string <- When executed, this function will return a value of type 'string'
 //! Without specifying return type(string), compiler will through an error,
 //! too many return statements, as it thinks nothing will return
-func newCard() string {
-	return "Five of Diamonds"
-}
+//* func newCard() string {
+//* 	return "Five of Diamonds"
+//* }

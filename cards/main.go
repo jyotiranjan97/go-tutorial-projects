@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 //* var card string = "Ace of Spades" // can execute
 //* var card string // can execute
 //! card := "Ace of Spades" // run time error, := is not allowed outside func
@@ -27,14 +25,18 @@ func main() {
 	// - Like a dynamic array
 	// - Must contain same data types
 	// - syntax, []#dataType{#data} // # is a placeholder
-	cards := []string{"Ace of Diamonds", newCard()}
+	//* cards := []string{"Ace of Diamonds", newCard()}
+
+	cards := deck{"Ace of Diamonds", newCard()}
 	cards = append(cards, "Six of Spaded")
 
 	// range cards is returning two things, 1st is index & 2nd is the value
 	// used as an iterator for slice
-	for i, card := range cards {
-		fmt.Println(i, card)
-	}
+	//* for i, card := range cards {
+	//* 	fmt.Println(i, card)
+	//* }
+
+	cards.print()
 }
 
 // newCard <- Define a function called 'newCard'
